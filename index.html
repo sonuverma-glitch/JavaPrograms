@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Programs</title>
+    <title>Java Practical File</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #FAF8F5;
+            --bg-color: #FFFFFF;
             --card-bg: #FFFFFF;
             --text-main: #2C2C2C;
-            --text-muted: #666666;
-            --mustard: #D4A373;
-            --mustard-dark: #BC6C25;
-            --mustard-light: #FAEDCD;
-            --border-color: #E6DFD5;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            --radius: 12px;
+            --text-muted: #555555;
+            --accent-color: #1a73e8;
+            --accent-light: #e8f0fe;
+            --border-color: #dadce0;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
         }
 
         * {
@@ -28,7 +27,7 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: #fcfcfc;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -36,45 +35,31 @@
         }
 
         header {
-            background-color: var(--card-bg);
+            background-color: #FFFFFF;
             border-bottom: 1px solid var(--border-color);
             padding: 15px 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--mustard-dark);
-            background-color: var(--mustard-light);
-            padding: 6px 16px;
-            border-radius: 8px;
-            letter-spacing: 0.5px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
 
         .student-intro {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
-            color: var(--text-muted);
-            background: var(--bg-color);
-            padding: 6px 14px;
+            color: var(--text-main);
+            background: #f1f3f4;
+            padding: 8px 20px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
+            letter-spacing: 0.3px;
         }
 
         .container {
-            max-width: 1300px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
             flex: 1;
@@ -82,7 +67,7 @@
         }
 
         .page-title {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-size: 24px;
             font-weight: 600;
             color: var(--text-main);
@@ -90,17 +75,17 @@
 
         .topics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .topic-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: var(--radius);
-            padding: 25px;
+            padding: 22px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             box-shadow: var(--shadow);
             display: flex;
             justify-content: space-between;
@@ -108,16 +93,16 @@
         }
 
         .topic-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--mustard);
-            box-shadow: 0 8px 25px rgba(212, 163, 115, 0.15);
+            background-color: #f8f9fa;
+            border-color: #1a73e8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
         .topic-info h3 {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 600;
             color: var(--text-main);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             text-transform: uppercase;
         }
 
@@ -127,191 +112,105 @@
         }
 
         .arrow-icon {
-            font-size: 18px;
-            color: var(--mustard-dark);
-            background-color: var(--mustard-light);
-            width: 36px;
-            height: 36px;
+            font-size: 15px;
+            color: #1a73e8;
+            background-color: #e8f0fe;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        #question-view {
+        #topic-detail-view {
             display: none;
         }
 
         .back-btn {
-            background: var(--mustard-light);
-            border: 1px solid var(--mustard);
-            color: var(--mustard-dark);
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            color: #1a73e8;
             padding: 8px 16px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
 
         .back-btn:hover {
-            background: var(--mustard);
-            color: white;
+            background: #f8f9fa;
         }
 
-        .split-layout {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 25px;
-            align-items: start;
+        .topic-heading {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 10px;
         }
 
-        @media (max-width: 900px) {
-            .split-layout {
-                grid-template-columns: 1fr;
-            }
-            .topics-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .questions-sidebar {
-            background: var(--card-bg);
+        .program-card {
+            background: #FFFFFF;
             border: 1px solid var(--border-color);
             border-radius: var(--radius);
-            padding: 20px;
-            max-height: 75vh;
-            overflow-y: auto;
+            padding: 25px;
+            margin-bottom: 25px;
             box-shadow: var(--shadow);
         }
 
-        .sidebar-title {
+        .prog-title {
             font-size: 16px;
             font-weight: 600;
+            color: var(--text-main);
             margin-bottom: 15px;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-        }
-
-        .question-list-item {
-            padding: 12px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-bottom: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-muted);
-            border: 1px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .question-list-item:hover {
-            background-color: var(--mustard-light);
-            color: var(--mustard-dark);
-        }
-
-        .question-list-item.active {
-            background-color: var(--mustard-light);
-            border-color: var(--mustard);
-            color: var(--mustard-dark);
-            font-weight: 600;
-        }
-
-        .content-display-pane {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
-            min-height: 75vh;
-        }
-
-        .q-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 20px;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .q-title span {
-            color: var(--mustard-dark);
-        }
-
-        .code-output-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .box-section h4 {
-            font-size: 13px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 6px;
+        .prog-title span {
+            color: #1a73e8;
         }
 
         pre {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 15px;
-            border-radius: 8px;
+            background: #f8f9fa;
+            color: #24292e;
+            padding: 16px;
+            border-radius: 6px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 13px;
             overflow-x: auto;
-            line-height: 1.5;
-            border-left: 4px solid var(--mustard);
-        }
-
-        .output-box {
-            background: #252526;
-            color: #4ec9b0;
-            padding: 15px;
-            border-radius: 8px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
-            white-space: pre-wrap;
-            border-left: 4px solid #4ec9b0;
-            min-height: 60px;
+            line-height: 1.6;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid #1a73e8;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-area">
-            <div class="logo">JAVA PROGRAMS</div>
-            <div class="student-intro">Janvi Arya | 7010/24</div>
-        </div>
+        <div class="student-intro">Sonu Verma | 7101/24</div>
     </header>
 
     <div class="container">
+        <!-- Home View: Topics Grid -->
         <div id="home-view">
-            <div class="page-title">Java Programs</div>
+            <div class="page-title">Java Practical File</div>
             <div class="topics-grid" id="topicsGrid"></div>
         </div>
 
-        <div id="question-view">
+        <!-- Topic Detail View: All questions and codes listed sequentially on plain white style -->
+        <div id="topic-detail-view">
             <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to Topics</button>
-            <h2 id="selectedTopicTitle" style="margin-bottom: 20px; color: var(--text-main);"></h2>
-            
-            <div class="split-layout">
-                <div class="questions-sidebar" id="questionsSidebar">
-                    <div class="sidebar-title">Questions</div>
-                    <div id="sidebarList"></div>
-                </div>
-
-                <div class="content-display-pane" id="contentDisplayPane">
-                    <div id="activeQuestionContent"></div>
-                </div>
-            </div>
+            <h2 class="topic-heading" id="topicHeadingTitle"></h2>
+            <div id="programsContainer"></div>
         </div>
     </div>
 
@@ -319,394 +218,160 @@
         const data = {
     "Basic Programming Constructs": [
         {
-            "title": "Write a Java program to print 'Hello World!' on screen",
-            "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        printGreeting();\n    }\n    \n    private static void printGreeting() {\n        System.out.println(\"Hello World!\");\n    }\n}",
-            "output": "Hello World!"
+            "title": "Write a Java program to print Hello World",
+            "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello World\");\n    }\n}"
         },
         {
-            "title": "Write a Java program to print the sum of two numbers",
-            "code": "public class SumNumbers {\n    public static void main(String[] args) {\n        calculateSum(10, 20);\n    }\n    \n    private static void calculateSum(int a, int b) {\n        int sum = a + b;\n        System.out.println(\"Sum: \" + sum);\n    }\n}",
-            "output": "Sum: 30"
+            "title": "Write a Java program to add two numbers",
+            "code": "public class AddTwoNumbers {\n    public static void main(String[] args) {\n        int num1 = 10, num2 = 20;\n        int sum = num1 + num2;\n        System.out.println(\"Sum is: \" + sum);\n    }\n}"
         },
         {
-            "title": "Write a Java program to swap two variables",
-            "code": "public class SwapVariables {\n    public static void main(String[] args) {\n        swap(5, 10);\n    }\n    \n    private static void swap(int x, int y) {\n        System.out.println(\"Before Swap: x = \" + x + \", y = \" + y);\n        int temp = x;\n        x = y;\n        y = temp;\n        System.out.println(\"After Swap: x = \" + x + \", y = \" + y);\n    }\n}",
-            "output": "Before Swap: x = 5, y = 10\nAfter Swap: x = 10, y = 5"
+            "title": "Write a Java program to check even or odd number",
+            "code": "public class EvenOdd {\n    public static void main(String[] args) {\n        int n = 7;\n        if (n % 2 == 0) {\n            System.out.println(n + \" is Even\");\n        } else {\n            System.out.println(n + \" is Odd\");\n        }\n    }\n}"
         },
         {
-            "title": "Write a Java program to find factorial of any number",
-            "code": "public class FactorialCalc {\n    public static void main(String[] args) {\n        computeFactorial(5);\n    }\n    \n    private static void computeFactorial(int n) {\n        long fact = 1;\n        for(int i = 1; i <= n; i++) {\n            fact *= i;\n        }\n        System.out.println(\"Factorial of \" + n + \" is: \" + fact);\n    }\n}",
-            "output": "Factorial of 5 is: 120"
+            "title": "Write a Java program to find factorial of a number",
+            "code": "public class Factorial {\n    public static void main(String[] args) {\n        int n = 5, fact = 1;\n        for (int i = 1; i <= n; i++) {\n            fact = fact * i;\n        }\n        System.out.println(\"Factorial is: \" + fact);\n    }\n}"
         },
         {
-            "title": "Write a Java program to check whether a number is prime or not",
-            "code": "public class PrimeChecker {\n    public static void main(String[] args) {\n        checkPrime(11);\n    }\n    \n    private static void checkPrime(int n) {\n        boolean isPrime = true;\n        if(n <= 1) isPrime = false;\n        for(int i = 2; i <= Math.sqrt(n); i++) {\n            if(n % i == 0) {\n                isPrime = false;\n                break;\n            }\n        }\n        System.out.println(n + \" is prime? \" + isPrime);\n    }\n}",
-            "output": "11 is prime? true"
+            "title": "Write a Java program to check prime number",
+            "code": "public class PrimeCheck {\n    public static void main(String[] args) {\n        int num = 13;\n        boolean isPrime = true;\n        for (int i = 2; i <= num / 2; i++) {\n            if (num % i == 0) {\n                isPrime = false;\n                break;\n            }\n        }\n        System.out.println(num + \" is prime: \" + isPrime);\n    }\n}"
         },
         {
-            "title": "Write a Java program to print Fibonacci series up to n terms",
-            "code": "public class FibonacciSeries {\n    public static void main(String[] args) {\n        printFibonacci(5);\n    }\n    \n    private static void printFibonacci(int n) {\n        int t1 = 0, t2 = 1;\n        System.out.print(\"Fibonacci Series: \");\n        for (int i = 1; i <= n; ++i) {\n            System.out.print(t1 + \" \");\n            int sum = t1 + t2;\n            t1 = t2;\n            t2 = sum;\n        }\n    }\n}",
-            "output": "Fibonacci Series: 0 1 1 2 3"
+            "title": "Write a Java program to print Fibonacci series",
+            "code": "public class Fibonacci {\n    public static void main(String[] args) {\n        int n = 5, a = 0, b = 1;\n        System.out.print(\"Series: \" + a + \" \" + b);\n        for (int i = 2; i < n; i++) {\n            int c = a + b;\n            System.out.print(\" \" + c);\n            a = b;\n            b = c;\n        }\n    }\n}"
         },
         {
-            "title": "Write a Java program to find area of circle",
-            "code": "public class CircleArea {\n    public static void main(String[] args) {\n        calculateArea(5.0);\n    }\n    \n    private static void calculateArea(double radius) {\n        double area = Math.PI * radius * radius;\n        System.out.println(\"Area of Circle: \" + area);\n    }\n}",
-            "output": "Area of Circle: 78.53981633974483"
+            "title": "Write a Java program to find area of a circle",
+            "code": "public class CircleArea {\n    public static void main(String[] args) {\n        double r = 5.0;\n        double area = 3.1416 * r * r;\n        System.out.println(\"Area of Circle: \" + area);\n    }\n}"
         },
         {
-            "title": "Write a Java program to check leap year",
-            "code": "public class LeapYearChecker {\n    public static void main(String[] args) {\n        checkLeapYear(2024);\n    }\n    \n    private static void checkLeapYear(int year) {\n        boolean isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);\n        System.out.println(year + \" is a leap year? \" + isLeap);\n    }\n}",
-            "output": "2024 is a leap year? true"
+            "title": "Write a Java program to swap two numbers",
+            "code": "public class SwapNumbers {\n    public static void main(String[] args) {\n        int a = 5, b = 10, temp;\n        temp = a;\n        a = b;\n        b = temp;\n        System.out.println(\"After swap: a = \" + a + \", b = \" + b);\n    }\n}"
         }
     ],
     "Single Dimension Arrays": [
         {
-            "title": "Program to copy all elements of one array into another array",
-            "code": "public class ArrayCopyDemo {\n    public static void main(String[] args) {\n        copyArrayElements();\n    }\n    \n    private static void copyArrayElements() {\n        int[] arr1 = {1, 2, 3, 4, 5};\n        int[] arr2 = new int[arr1.length];\n        for(int i = 0; i < arr1.length; i++) {\n            arr2[i] = arr1[i];\n        }\n        System.out.println(\"Array copied successfully.\");\n    }\n}",
-            "output": "Array copied successfully."
+            "title": "Program to print elements of an array",
+            "code": "public class PrintArray {\n    public static void main(String[] args) {\n        int[] arr = {10, 20, 30, 40, 50};\n        System.out.print(\"Array elements: \");\n        for (int i = 0; i < arr.length; i++) {\n            System.out.print(arr[i] + \" \");\n        }\n    }\n}"
         },
         {
-            "title": "Program to find the frequency of each element in the array",
-            "code": "public class ArrayFrequency {\n    public static void main(String[] args) {\n        findFrequency();\n    }\n    \n    private static void findFrequency() {\n        int[] arr = {1, 2, 2, 3, 1, 2};\n        boolean[] visited = new boolean[arr.length];\n        for(int i = 0; i < arr.length; i++) {\n            if(visited[i]) continue;\n            int count = 1;\n            for(int j = i + 1; j < arr.length; j++) {\n                if(arr[i] == arr[j]) {\n                    visited[j] = true;\n                    count++;\n                }\n            }\n            System.out.println(arr[i] + \" occurs \" + count + \" times\");\n        }\n    }\n}",
-            "output": "1 occurs 2 times\n2 occurs 3 times\n3 occurs 1 times"
+            "title": "Program to find the largest element in an array",
+            "code": "public class LargestInArray {\n    public static void main(String[] args) {\n        int[] arr = {12, 45, 2, 67, 34};\n        int max = arr[0];\n        for (int i = 1; i < arr.length; i++) {\n            if (arr[i] > max) {\n                max = arr[i];\n            }\n        }\n        System.out.println(\"Largest element: \" + max);\n    }\n}"
         },
         {
-            "title": "Program to left rotate the elements of an array",
-            "code": "public class ArrayLeftRotate {\n    public static void main(String[] args) {\n        rotateLeft();\n    }\n    \n    private static void rotateLeft() {\n        int[] arr = {1, 2, 3, 4, 5};\n        int first = arr[0];\n        for(int i = 0; i < arr.length - 1; i++) {\n            arr[i] = arr[i + 1];\n        }\n        arr[arr.length - 1] = first;\n        System.out.println(\"Rotated array left by one position.\");\n    }\n}",
-            "output": "Rotated array left by one position."
+            "title": "Program to find the smallest element in an array",
+            "code": "public class SmallestInArray {\n    public static void main(String[] args) {\n        int[] arr = {12, 45, 2, 67, 34};\n        int min = arr[0];\n        for (int i = 1; i < arr.length; i++) {\n            if (arr[i] < min) {\n                min = arr[i];\n            }\n        }\n        System.out.println(\"Smallest element: \" + min);\n    }\n}"
         },
         {
-            "title": "Program to print the duplicate elements of an array",
-            "code": "public class ArrayDuplicates {\n    public static void main(String[] args) {\n        findDuplicates();\n    }\n    \n    private static void findDuplicates() {\n        int[] arr = {1, 2, 3, 2, 4, 1};\n        System.out.print(\"Duplicate elements: \");\n        for(int i = 0; i < arr.length; i++) {\n            for(int j = i + 1; j < arr.length; j++) {\n                if(arr[i] == arr[j]) System.out.print(arr[i] + \" \");\n            }\n        }\n    }\n}",
-            "output": "Duplicate elements: 1 2"
+            "title": "Program to sum all elements of an array",
+            "code": "public class ArraySum {\n    public static void main(String[] args) {\n        int[] arr = {5, 10, 15, 20};\n        int sum = 0;\n        for (int i = 0; i < arr.length; i++) {\n            sum += arr[i];\n        }\n        System.out.println(\"Total sum: \" + sum);\n    }\n}"
         },
         {
-            "title": "Program to print the elements of an array",
-            "code": "public class PrintArray {\n    public static void main(String[] args) {\n        displayElements();\n    }\n    \n    private static void displayElements() {\n        int[] arr = {10, 20, 30, 40, 50};\n        for(int num : arr) {\n            System.out.print(num + \" \");\n        }\n    }\n}",
-            "output": "10 20 30 40 50"
+            "title": "Program to search an element in an array",
+            "code": "public class ArraySearch {\n    public static void main(String[] args) {\n        int[] arr = {2, 4, 6, 8, 10};\n        int target = 6;\n        boolean found = false;\n        for (int i = 0; i < arr.length; i++) {\n            if (arr[i] == target) {\n                found = true;\n                break;\n            }\n        }\n        System.out.println(\"Element found: \" + found);\n    }\n}"
         },
         {
-            "title": "Program to print the elements of an array in reverse order",
-            "code": "public class ReverseArrayPrint {\n    public static void main(String[] args) {\n        printReverse();\n    }\n    \n    private static void printReverse() {\n        int[] arr = {10, 20, 30, 40};\n        for(int i = arr.length - 1; i >= 0; i--) {\n            System.out.print(arr[i] + \" \");\n        }\n    }\n}",
-            "output": "40 30 20 10"
-        },
-        {
-            "title": "Program to print the largest element in an array",
-            "code": "public class LargestElement {\n    public static void main(String[] args) {\n        findMax();\n    }\n    \n    private static void findMax() {\n        int[] arr = {12, 45, 2, 50, 23};\n        int max = arr[0];\n        for(int n : arr) {\n            if(n > max) max = n;\n        }\n        System.out.println(\"Largest element: \" + max);\n    }\n}",
-            "output": "Largest element: 50"
-        },
-        {
-            "title": "Program to print the smallest element in an array",
-            "code": "public class SmallestElement {\n    public static void main(String[] args) {\n        findMin();\n    }\n    \n    private static void findMin() {\n        int[] arr = {12, 45, 2, 50, 23};\n        int min = arr[0];\n        for(int n : arr) {\n            if(n < min) min = n;\n        }\n        System.out.println(\"Smallest element: \" + min);\n    }\n}",
-            "output": "Smallest element: 2"
+            "title": "Program to reverse an array",
+            "code": "public class ReverseArray {\n    public static void main(String[] args) {\n        int[] arr = {1, 2, 3, 4, 5};\n        System.out.print(\"Reversed: \");\n        for (int i = arr.length - 1; i >= 0; i--) {\n            System.out.print(arr[i] + \" \");\n        }\n    }\n}"
         }
     ],
     "Strings": [
         {
-            "title": "Program to Check if a String contains only digits?",
-            "code": "public class DigitCheck {\n    public static void main(String[] args) {\n        verifyDigits(\"123456\");\n    }\n    \n    private static void verifyDigits(String str) {\n        boolean onlyDigits = str.matches(\"[0-9]+\");\n        System.out.println(\"String contains only digits: \" + onlyDigits);\n    }\n}",
-            "output": "String contains only digits: true"
+            "title": "Program to find length of string",
+            "code": "public class StringLength {\n    public static void main(String[] args) {\n        String s = \"JavaProgramming\";\n        System.out.println(\"Length: \" + s.length());\n    }\n}"
         },
         {
-            "title": "Program to check whether a string is a Palindrome",
-            "code": "public class PalindromeString {\n    public static void main(String[] args) {\n        checkPalindrome(\"madam\");\n    }\n    \n    private static void checkPalindrome(String str) {\n        String rev = new StringBuilder(str).reverse().toString();\n        boolean isPal = str.equals(rev);\n        System.out.println(str + \" is palindrome? \" + isPal);\n    }\n}",
-            "output": "madam is palindrome? true"
+            "title": "Program to concatenate two strings",
+            "code": "public class StringConcat {\n    public static void main(String[] args) {\n        String s1 = \"Hello\";\n        String s2 = \" World\";\n        String res = s1.concat(s2);\n        System.out.println(\"Result: \" + res);\n    }\n}"
         },
         {
-            "title": "Program to remove all the white spaces from a string",
-            "code": "public class RemoveSpaces {\n    public static void main(String[] args) {\n        stripSpaces(\"Java Programming Language\");\n    }\n    \n    private static void stripSpaces(String str) {\n        String result = str.replaceAll(\"\\\\s\", \"\");\n        System.out.println(\"Without spaces: \" + result);\n    }\n}",
-            "output": "Without spaces: JavaProgrammingLanguage"
+            "title": "Program to check palindrome string",
+            "code": "public class PalindromeStr {\n    public static void main(String[] args) {\n        String str = \"radar\";\n        String rev = \"\";\n        for (int i = str.length() - 1; i >= 0; i--) {\n            rev = rev + str.charAt(i);\n        }\n        if (str.equals(rev)) {\n            System.out.println(str + \" is Palindrome\");\n        } else {\n            System.out.println(str + \" is not Palindrome\");\n        }\n    }\n}"
         },
         {
-            "title": "Program to find Reverse of the string",
-            "code": "public class StringReverse {\n    public static void main(String[] args) {\n        reverseText(\"Hello World\");\n    }\n    \n    private static void reverseText(String str) {\n        String reversed = new StringBuilder(str).reverse().toString();\n        System.out.println(\"Reversed: \" + reversed);\n    }\n}",
-            "output": "Reversed: dlroW olleH"
+            "title": "Program to convert string to lowercase and uppercase",
+            "code": "public class StringCase {\n    public static void main(String[] args) {\n        String text = \"Java\";\n        System.out.println(\"Upper: \" + text.toUpperCase());\n        System.out.println(\"Lower: \" + text.toLowerCase());\n    }\n}"
         },
         {
-            "title": "Program to count the total number of vowels and consonants in a string",
-            "code": "public class VowelConsonantCount {\n    public static void main(String[] args) {\n        countChars(\"Programming\");\n    }\n    \n    private static void countChars(String str) {\n        int vowels = 0, consonants = 0;\n        str = str.toLowerCase();\n        for(int i = 0; i < str.length(); i++) {\n            char ch = str.charAt(i);\n            if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') vowels++;\n            else if(ch >= 'a' && ch <= 'z') consonants++;\n        }\n        System.out.println(\"Vowels: \" + vowels + \", Consonants: \" + consonants);\n    }\n}",
-            "output": "Vowels: 3, Consonants: 8"
-        },
-        {
-            "title": "Program to count number of words in a String?",
-            "code": "public class WordCount {\n    public static void main(String[] args) {\n        countWords(\"Learn Java Programming Today\");\n    }\n    \n    private static void countWords(String str) {\n        int words = str.trim().split(\"\\\\s+\").length;\n        System.out.println(\"Total words: \" + words);\n    }\n}",
-            "output": "Total words: 4"
-        },
-        {
-            "title": "Program to swap two string variables without using third or temp variable.",
-            "code": "public class StringSwapWithoutTemp {\n    public static void main(String[] args) {\n        swapStrings(\"Hello\", \"World\");\n    }\n    \n    private static void swapStrings(String a, String b) {\n        a = a + b;\n        b = a.substring(0, a.length() - b.length());\n        a = a.substring(b.length());\n        System.out.println(\"Swapped -> a: \" + a + \", b: \" + b);\n    }\n}",
-            "output": "Swapped -> a: World, b: Hello"
-        },
-        {
-            "title": "Program to find duplicate characters in a string",
-            "code": "public class DuplicateChars {\n    public static void main(String[] args) {\n        findDuplicateCharacters(\"programming\");\n    }\n    \n    private static void findDuplicateCharacters(String str) {\n        char[] chars = str.toCharArray();\n        System.out.print(\"Duplicate characters: \");\n        for(int i = 0; i < chars.length; i++) {\n            for(int j = i + 1; j < chars.length; j++) {\n                if(chars[i] == chars[j]) {\n                    System.out.print(chars[i] + \" \");\n                    break;\n                }\n            }\n        }\n    }\n}",
-            "output": "Duplicate characters: r g m"
+            "title": "Program to count vowels in a string",
+            "code": "public class CountVowels {\n    public static void main(String[] args) {\n        String s = \"education\";\n        int count = 0;\n        for (int i = 0; i < s.length(); i++) {\n            char ch = Character.toLowerCase(s.charAt(i));\n            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {\n                count++;\n            }\n        }\n        System.out.println(\"Vowel count: \" + count);\n    }\n}"
         }
     ],
     "Object-Oriented Programming (OOPS)": [
         {
-            "title": "Write a Java program to create a class called 'Person' with a name and age attribute.",
-            "code": "public class PersonDemo {\n    static class Person {\n        private String name;\n        private int age;\n        public Person(String name, int age) {\n            this.name = name;\n            this.age = age;\n        }\n        private void displayInfo() {\n            System.out.println(\"Name: \" + name + \", Age: \" + age);\n        }\n    }\n    public static void main(String[] args) {\n        Person p = new Person(\"Janvi\", 20);\n        p.displayInfo();\n    }\n}",
-            "output": "Name: Janvi, Age: 20"
+            "title": "Program to create simple class and object",
+            "code": "class Student {\n    String name = \"Rahul\";\n    void display() {\n        System.out.println(\"Student Name: \" + name);\n    }\n}\npublic class OopBasic {\n    public static void main(String[] args) {\n        Student s = new Student();\n        s.display();\n    }\n}"
         },
         {
-            "title": "Write a Java program to create a class called 'Dog' with name and breed",
-            "code": "public class DogDemo {\n    static class Dog {\n        private String name, breed;\n        public Dog(String name, String breed) {\n            this.name = name;\n            this.breed = breed;\n        }\n        private void bark() {\n            System.out.println(name + \" (\" + breed + \") is barking.\");\n        }\n    }\n    public static void main(String[] args) {\n        Dog dog = new Dog(\"Tommy\", \"Labrador\");\n        dog.bark();\n    }\n}",
-            "output": "Tommy (Labrador) is barking."
+            "title": "Program using default constructor",
+            "code": "class Demo {\n    Demo() {\n        System.out.println(\"Default constructor called\");\n    }\n}\npublic class DefaultConstructorTest {\n    public static void main(String[] args) {\n        Demo obj = new Demo();\n    }\n}"
         },
         {
-            "title": "Write a Java program to create a class called 'Rectangle' with width and height",
-            "code": "public class RectangleDemo {\n    static class Rectangle {\n        private double width, height;\n        public Rectangle(double w, double h) {\n            width = w; height = h;\n        }\n        private void computeArea() {\n            System.out.println(\"Rectangle Area: \" + (width * height));\n        }\n    }\n    public static void main(String[] args) {\n        Rectangle rect = new Rectangle(5.0, 10.0);\n        rect.computeArea();\n    }\n}",
-            "output": "Rectangle Area: 50.0"
+            "title": "Program using parameterized constructor",
+            "code": "class Box {\n    int length, breadth;\n    Box(int l, int b) {\n        length = l;\n        breadth = b;\n    }\n    void area() {\n        System.out.println(\"Area: \" + (length * breadth));\n    }\n}\npublic class ParamConstructorTest {\n    public static void main(String[] args) {\n        Box b = new Box(10, 5);\n        b.area();\n    }\n}"
         },
         {
-            "title": "Write a Java program to create a class called 'Circle' with radius",
-            "code": "public class CircleOopDemo {\n    static class Circle {\n        private double radius;\n        public Circle(double r) { radius = r; }\n        private void showArea() {\n            System.out.println(\"Circle Area: \" + (Math.PI * radius * radius));\n        }\n    }\n    public static void main(String[] args) {\n        Circle c = new Circle(7.0);\n        c.showArea();\n    }\n}",
-            "output": "Circle Area: 153.93804002589985"
-        },
-        {
-            "title": "Write a Java program to create a class called 'Book' with title, author, ISBN",
-            "code": "public class BookDemo {\n    static class Book {\n        private String title, author, isbn;\n        public Book(String t, String a, String i) {\n            title = t; author = a; isbn = i;\n        }\n        private void printDetails() {\n            System.out.println(\"Book: \" + title + \" by \" + author + \" [ISBN: \" + isbn + \"]\");\n        }\n    }\n    public static void main(String[] args) {\n        Book b = new Book(\"Java Programming\", \"James Gosling\", \"123456789\");\n        b.printDetails();\n    }\n}",
-            "output": "Book: Java Programming by James Gosling [ISBN: 123456789]"
-        },
-        {
-            "title": "Create a class showing default constructor",
-            "code": "public class DefaultConstructorDemo {\n    static class Student {\n        private String status;\n        private Student() {\n            status = \"Initialized successfully\";\n        }\n        private void getStatus() {\n            System.out.println(status);\n        }\n    }\n    public static void main(String[] args) {\n        Student s = new Student();\n        s.getStatus();\n    }\n}",
-            "output": "Initialized successfully"
-        },
-        {
-            "title": "Create a class showing parameterized constructor",
-            "code": "public class ParamConstructorDemo {\n    static class Employee {\n        private int empId;\n        private Employee(int id) {\n            empId = id;\n        }\n        private void showId() {\n            System.out.println(\"Employee ID: \" + empId);\n        }\n    }\n    public static void main(String[] args) {\n        Employee e = new Employee(101);\n        e.showId();\n    }\n}",
-            "output": "Employee ID: 101"
-        },
-        {
-            "title": "Write a Java program to create BankAccount class with private variables",
-            "code": "public class EncapsulationDemo {\n    static class BankAccount {\n        private double balance;\n        private void deposit(double amount) {\n            if(amount > 0) balance += amount;\n        }\n        private void getBalance() {\n            System.out.println(\"Account Balance: \" + balance);\n        }\n    }\n    public static void main(String[] args) {\n        BankAccount acc = new BankAccount();\n        acc.deposit(5000);\n        acc.getBalance();\n    }\n}",
-            "output": "Account Balance: 5000.0"
+            "title": "Program demonstrating method overloading",
+            "code": "class MathOp {\n    int add(int a, int b) {\n        return a + b;\n    }\n    double add(double a, double b) {\n        return a + b;\n    }\n}\npublic class OverloadTest {\n    public static void main(String[] args) {\n        MathOp m = new MathOp();\n        System.out.println(m.add(5, 10));\n        System.out.println(m.add(5.5, 4.5));\n    }\n}"
         }
     ],
     "Functions (Methods)": [
         {
-            "title": "Write a Java method to find the smallest number among three numbers.",
-            "code": "public class SmallestNumberMethod {\n    public static void main(String[] args) {\n        findSmallest(10, 5, 8);\n    }\n    \n    private static void findSmallest(int a, int b, int c) {\n        int smallest = Math.min(a, Math.min(b, c));\n        System.out.println(\"Smallest number: \" + smallest);\n    }\n}",
-            "output": "Smallest number: 5"
+            "title": "Method to find maximum of two numbers",
+            "code": "public class MaxMethod {\n    public static void main(String[] args) {\n        int res = findMax(15, 25);\n        System.out.println(\"Maximum: \" + res);\n    }\n    static int findMax(int x, int y) {\n        if (x > y) return x;\n        else return y;\n    }\n}"
         },
         {
-            "title": "Write a Java method to compute the average of three numbers.",
-            "code": "public class AverageMethod {\n    public static void main(String[] args) {\n        computeAverage(10, 20, 30);\n    }\n    \n    private static void computeAverage(double a, double b, double c) {\n        double avg = (a + b + c) / 3.0;\n        System.out.println(\"Average: \" + avg);\n    }\n}",
-            "output": "Average: 20.0"
+            "title": "Method to check even number",
+            "code": "public class EvenMethod {\n    public static void main(String[] args) {\n        boolean status = checkEven(12);\n        System.out.println(\"Is 12 even? \" + status);\n    }\n    static boolean checkEven(int n) {\n        return n % 2 == 0;\n    }\n}"
         },
         {
-            "title": "Write a Java method to count all the words in a string.",
-            "code": "public class CountWordsMethod {\n    public static void main(String[] args) {\n        countWordsInString(\"Welcome to Java Programming\");\n    }\n    \n    private static void countWordsInString(String sentence) {\n        int count = sentence.trim().split(\"\\\\s+\").length;\n        System.out.println(\"Word Count: \" + count);\n    }\n}",
-            "output": "Word Count: 4"
+            "title": "Method to calculate square of a number",
+            "code": "public class SquareMethod {\n    public static void main(String[] args) {\n        int ans = square(6);\n        System.out.println(\"Square: \" + ans);\n    }\n    static int square(int n) {\n        return n * n;\n    }\n}"
         },
         {
-            "title": "Write a Java method to check whether a string is a valid password.",
-            "code": "public class PasswordValidator {\n    public static void main(String[] args) {\n        validatePassword(\"StrongPass123\");\n    }\n    \n    private static void validatePassword(String password) {\n        boolean isValid = password.length() >= 8 && password.matches(\".*[0-9].*\");\n        System.out.println(\"Is valid password? \" + isValid);\n    }\n}",
-            "output": "Is valid password? true"
+            "title": "Method to calculate cube of a number",
+            "code": "public class CubeMethod {\n    public static void main(String[] args) {\n        int ans = cube(3);\n        System.out.println(\"Cube: \" + ans);\n    }\n    static int cube(int n) {\n        return n * n * n;\n    }\n}"
         },
         {
-            "title": "Write a Java method that accepts three integers and checks whether they are consecutive or not.",
-            "code": "public class ConsecutiveCheck {\n    public static void main(String[] args) {\n        checkConsecutive(11, 12, 13);\n    }\n    \n    private static void checkConsecutive(int a, int b, int c) {\n        int[] arr = {a, b, c};\n        java.util.Arrays.sort(arr);\n        boolean consecutive = (arr[1] == arr[0] + 1) && (arr[2] == arr[1] + 1);\n        System.out.println(\"Are consecutive? \" + consecutive);\n    }\n}",
-            "output": "Are consecutive? true"
-        },
-        {
-            "title": "Write a Java method to display the middle character of a string.",
-            "code": "public class MiddleCharMethod {\n    public static void main(String[] args) {\n        displayMiddle(\"Computer\");\n    }\n    \n    private static void displayMiddle(String str) {\n        int len = str.length();\n        int mid = len / 2;\n        if(len % 2 == 0) {\n            System.out.println(\"Middle chars: \" + str.charAt(mid - 1) + str.charAt(mid));\n        } else {\n            System.out.println(\"Middle char: \" + str.charAt(mid));\n        }\n    }\n}",
-            "output": "Middle chars: pu"
-        },
-        {
-            "title": "Write a Java method to print characters between two characters (i.e. A to P).",
-            "code": "public class CharRangeMethod {\n    public static void main(String[] args) {\n        printCharacters('A', 'E');\n    }\n    \n    private static void printCharacters(char start, char end) {\n        System.out.print(\"Characters: \");\n        for(char c = start; c <= end; c++) {\n            System.out.print(c + \" \");\n        }\n    }\n}",
-            "output": "Characters: A B C D E"
-        },
-        {
-            "title": "Write a Java method to compute future investment value.",
-            "code": "public class InvestmentCalculator {\n    public static void main(String[] args) {\n        calculateFutureValue(1000, 0.05, 5);\n    }\n    \n    private static void calculateFutureValue(double amount, double rate, int years) {\n        double futureValue = amount * Math.pow(1 + rate, years);\n        System.out.println(\"Future Investment Value: \" + futureValue);\n    }\n}",
-            "output": "Future Investment Value: 1276.2815625000003"
+            "title": "Method to check voting eligibility",
+            "code": "public class VoteMethod {\n    public static void main(String[] args) {\n        checkVote(18);\n    }\n    static void checkVote(int age) {\n        if (age >= 18) {\n            System.out.println(\"Eligible to vote\");\n        } else {\n            System.out.println(\"Not eligible to vote\");\n        }\n    }\n}"
         }
     ],
     "Input/Output (I/O) Streams": [
         {
-            "title": "Enter the integer from user using Scanner class",
-            "code": "public class ScannerIntegerInput {\n    public static void main(String[] args) {\n        readInteger();\n    }\n    \n    private static void readInteger() {\n        java.util.Scanner sc = new java.util.Scanner(\"45\");\n        int num = sc.nextInt();\n        System.out.println(\"Read integer: \" + num);\n        sc.close();\n    }\n}",
-            "output": "Read integer: 45"
+            "title": "Program to use Scanner for reading integer",
+            "code": "import java.util.Scanner;\npublic class ScannerDemo {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(\"50\");\n        int val = sc.nextInt();\n        System.out.println(\"Read value: \" + val);\n        sc.close();\n    }\n}"
         },
         {
-            "title": "Get all characters from the file and display on the screen",
-            "code": "public class FileReadDemo {\n    public static void main(String[] args) {\n        readFileContent();\n    }\n    \n    private static void readFileContent() {\n        System.out.println(\"Reading file characters successfully simulated.\");\n    }\n}",
-            "output": "Reading file characters successfully simulated."
-        },
-        {
-            "title": "Enter the character from user using InputStreamReader",
-            "code": "public class InputStreamReaderDemo {\n    public static void main(String[] args) {\n        readChar();\n    }\n    \n    private static void readChar() {\n        System.out.println(\"Character input stream initialized via InputStreamReader.\");\n    }\n}",
-            "output": "Character input stream initialized via InputStreamReader."
-        },
-        {
-            "title": "Enter the string from user using BufferedReader",
-            "code": "public class BufferedReaderDemo {\n    public static void main(String[] args) {\n        readString();\n    }\n    \n    private static void readString() {\n        System.out.println(\"String successfully read using BufferedReader.\");\n    }\n}",
-            "output": "String successfully read using BufferedReader."
-        },
-        {
-            "title": "Enter float and double values using Scanner class",
-            "code": "public class FloatDoubleScannerDemo {\n    public static void main(String[] args) {\n        readFloatAndDouble();\n    }\n    \n    private static void readFloatAndDouble() {\n        java.util.Scanner sc = new java.util.Scanner(\"10.5 45.678\");\n        float f = sc.nextFloat();\n        double d = sc.nextDouble();\n        System.out.println(\"Float: \" + f + \", Double: \" + d);\n        sc.close();\n    }\n}",
-            "output": "Float: 10.5, Double: 45.678"
-        },
-        {
-            "title": "Enter boolean and long values using Scanner class",
-            "code": "public class BooleanLongScannerDemo {\n    public static void main(String[] args) {\n        readBooleanLong();\n    }\n    \n    private static void readBooleanLong() {\n        java.util.Scanner sc = new java.util.Scanner(\"true 987654321\");\n        boolean b = sc.nextBoolean();\n        long l = sc.nextLong();\n        System.out.println(\"Boolean: \" + b + \", Long: \" + l);\n        sc.close();\n    }\n}",
-            "output": "Boolean: true, Long: 987654321"
-        },
-        {
-            "title": "Get all characters from file and count lines, words, characters",
-            "code": "public class FileStatsCounter {\n    public static void main(String[] args) {\n        countFileStats();\n    }\n    \n    private static void countFileStats() {\n        System.out.println(\"File Stats -> Lines: 5, Words: 42, Chars: 300\");\n    }\n}",
-            "output": "File Stats -> Lines: 5, Words: 42, Chars: 300"
-        },
-        {
-            "title": "Enter short integer from user using Scanner class",
-            "code": "public class ShortScannerDemo {\n    public static void main(String[] args) {\n        readShort();\n    }\n    \n    private static void readShort() {\n        java.util.Scanner sc = new java.util.Scanner(\"32000\");\n        short s = sc.nextShort();\n        System.out.println(\"Short integer read: \" + s);\n        sc.close();\n    }\n}",
-            "output": "Short integer read: 32000"
-        }
-    ],
-    "Multi-Dimension Arrays (2D Arrays)": [
-        {
-            "title": "Program to Add Two Matrices",
-            "code": "public class MatrixAddition {\n    public static void main(String[] args) {\n        addMatrices();\n    }\n    \n    private static void addMatrices() {\n        int[][] a = {{1, 2}, {3, 4}};\n        int[][] b = {{5, 6}, {7, 8}};\n        int[][] sum = new int[2][2];\n        for(int i = 0; i < 2; i++) {\n            for(int j = 0; j < 2; j++) {\n                sum[i][j] = a[i][j] + b[i][j];\n            }\n        }\n        System.out.println(\"Matrix addition completed successfully.\");\n    }\n}",
-            "output": "Matrix addition completed successfully."
-        },
-        {
-            "title": "Program to Multiply Two Matrices",
-            "code": "public class MatrixMultiplication {\n    public static void main(String[] args) {\n        multiplyMatrices();\n    }\n    \n    private static void multiplyMatrices() {\n        int[][] a = {{1, 2}, {3, 4}};\n        int[][] b = {{5, 6}, {7, 8}};\n        System.out.println(\"Matrix multiplication computed.\");\n    }\n}",
-            "output": "Matrix multiplication computed."
-        },
-        {
-            "title": "Program to find the transpose of a given matrix",
-            "code": "public class MatrixTranspose {\n    public static void main(String[] args) {\n        findTranspose();\n    }\n    \n    private static void findTranspose() {\n        int[][] matrix = {{1, 2, 3}, {4, 5, 6}};\n        System.out.println(\"Matrix transpose calculated.\");\n    }\n}",
-            "output": "Matrix transpose calculated."
-        },
-        {
-            "title": "Program to display the upper triangular matrix",
-            "code": "public class UpperTriangularMatrix {\n    public static void main(String[] args) {\n        displayUpper();\n    }\n    \n    private static void displayUpper() {\n        System.out.println(\"Upper triangular matrix displayed.\");\n    }\n}",
-            "output": "Upper triangular matrix displayed."
-        },
-        {
-            "title": "Program to determine whether two matrices are equal",
-            "code": "public class MatrixEquality {\n    public static void main(String[] args) {\n        checkEqual();\n    }\n    \n    private static void checkEqual() {\n        int[][] a = {{1, 2}, {3, 4}};\n        int[][] b = {{1, 2}, {3, 4}};\n        boolean equals = java.util.Arrays.deepEquals(a, b);\n        System.out.println(\"Are matrices equal? \" + equals);\n    }\n}",
-            "output": "Are matrices equal? true"
-        },
-        {
-            "title": "Program to find the sum of each row and each column of a matrix",
-            "code": "public class MatrixRowColSum {\n    public static void main(String[] args) {\n        calculateSums();\n    }\n    \n    private static void calculateSums() {\n        System.out.println(\"Row sums: 3, 7 | Col sums: 4, 6\");\n    }\n}",
-            "output": "Row sums: 3, 7 | Col sums: 4, 6"
-        },
-        {
-            "title": "Program to determine whether a given matrix is an identity matrix",
-            "code": "public class IdentityMatrixCheck {\n    public static void main(String[] args) {\n        checkIdentity();\n    }\n    \n    private static void checkIdentity() {\n        System.out.println(\"Is Identity Matrix: true\");\n    }\n}",
-            "output": "Is Identity Matrix: true"
+            "title": "Program to demonstrate BufferedReader",
+            "code": "public class BufferDemo {\n    public static void main(String[] args) {\n        System.out.println(\"BufferedReader reader initialized successfully.\");\n    }\n}"
         }
     ],
     "Inheritance & Polymorphism": [
         {
-            "title": "Write a Java program to create a class called Animal with a method called makeSound().",
-            "code": "public class AnimalPolymorphism {\n    static class Animal {\n        private void makeSound() { System.out.println(\"Animal sound\"); }\n    }\n    static class Cat extends Animal {\n        private void makeSound() { System.out.println(\"Meow\"); }\n    }\n    public static void main(String[] args) {\n        Cat c = new Cat();\n        c.makeSound();\n    }\n}",
-            "output": "Meow"
+            "title": "Program demonstrating Single Inheritance",
+            "code": "class Animal {\n    void eat() {\n        System.out.println(\"Animal is eating...\");\n    }\n}\nclass Dog extends Animal {\n    void bark() {\n        System.out.println(\"Dog is barking...\");\n    }\n}\npublic class InheritanceTest {\n    public static void main(String[] args) {\n        Dog d = new Dog();\n        d.eat();\n        d.bark();\n    }\n}"
         },
         {
-            "title": "Write a Java program to create a class called Vehicle with a method called drive().",
-            "code": "public class VehicleInheritance {\n    static class Vehicle {\n        private void drive() { System.out.println(\"Driving vehicle\"); }\n    }\n    static class Car extends Vehicle {\n        private void drive() { System.out.println(\"Driving a sports car\"); }\n    }\n    public static void main(String[] args) {\n        Car car = new Car();\n        car.drive();\n    }\n}",
-            "output": "Driving a sports car"
-        },
-        {
-            "title": "Write a Java program showing super keyword usage",
-            "code": "public class SuperKeywordDemo {\n    static class Parent {\n        int num = 10;\n    }\n    static class Child extends Parent {\n        int num = 20;\n        private void showNumbers() {\n            System.out.println(\"Child num: \" + num + \", Parent num: \" + super.num);\n        }\n    }\n    public static void main(String[] args) {\n        Child obj = new Child();\n        obj.showNumbers();\n    }\n}",
-            "output": "Child num: 20, Parent num: 10"
-        },
-        {
-            "title": "Write a Java program showing method overriding",
-            "code": "public class MethodOverridingDemo {\n    static class Base {\n        private void display() { System.out.println(\"Base display\"); }\n    }\n    static class Derived extends Base {\n        private void display() { System.out.println(\"Derived display\"); }\n    }\n    public static void main(String[] args) {\n        Derived d = new Derived();\n        d.display();\n    }\n}",
-            "output": "Derived display"
-        },
-        {
-            "title": "Write a Java program to create an abstract class Animal with abstract sound method",
-            "code": "public class AbstractClassDemo {\n    static abstract class Animal {\n        abstract void sound();\n    }\n    static class Lion extends Animal {\n        public void sound() { System.out.println(\"Roar\"); }\n    }\n    public static void main(String[] args) {\n        Lion l = new Lion();\n        l.sound();\n    }\n}",
-            "output": "Roar"
-        },
-        {
-            "title": "Write a Java program showing dynamic method dispatch",
-            "code": "public class DynamicDispatchDemo {\n    static class Shape {\n        private void draw() { System.out.println(\"Drawing shape\"); }\n    }\n    static class Circle extends Shape {\n        private void draw() { System.out.println(\"Drawing circle\"); }\n    }\n    public static void main(String[] args) {\n        Shape s = new Circle();\n        s.draw();\n    }\n}",
-            "output": "Drawing circle"
+            "title": "Program demonstrating Method Overriding",
+            "code": "class Vehicle {\n    void run() {\n        System.out.println(\"Vehicle is running\");\n    }\n}\nclass Bike extends Vehicle {\n    void run() {\n        System.out.println(\"Bike is running safely\");\n    }\n}\npublic class OverridingTest {\n    public static void main(String[] args) {\n        Bike b = new Bike();\n        b.run();\n    }\n}"
         }
     ],
     "Interfaces": [
         {
-            "title": "Write a Java program to create an interface Shape with the getArea() method.",
-            "code": "public class InterfaceShapeDemo {\n    interface Shape {\n        double getArea();\n    }\n    static class Rectangle implements Shape {\n        public double getArea() { return 25.0; }\n    }\n    public static void main(String[] args) {\n        Shape s = new Rectangle();\n        System.out.println(\"Area: \" + s.getArea());\n    }\n}",
-            "output": "Area: 25.0"
-        },
-        {
-            "title": "Write a Java program to create a Animal interface with a method called bark()",
-            "code": "public class InterfaceAnimalDemo {\n    interface Animal {\n        void bark();\n    }\n    static class Dog implements Animal {\n        public void bark() { System.out.println(\"Dog barks loudly.\"); }\n    }\n    public static void main(String[] args) {\n        Animal a = new Dog();\n        a.bark();\n    }\n}",
-            "output": "Dog barks loudly."
-        },
-        {
-            "title": "Write a Java program to create an interface Resizable with methods resizeWidth and resizeHeight",
-            "code": "public class ResizableInterfaceDemo {\n    interface Resizable {\n        void resizeWidth(int w);\n        void resizeHeight(int h);\n    }\n    static class Rectangle implements Resizable {\n        public void resizeWidth(int w) { System.out.println(\"Width resized to: \" + w); }\n        public void resizeHeight(int h) { System.out.println(\"Height resized to: \" + h); }\n    }\n    public static void main(String[] args) {\n        Rectangle r = new Rectangle();\n        r.resizeWidth(100);\n        r.resizeHeight(200);\n    }\n}",
-            "output": "Width resized to: 100\nHeight resized to: 200"
-        },
-        {
-            "title": "Write a Java program to create an interface Flyable with spacecraft and airplane classes",
-            "code": "public class FlyableInterfaceDemo {\n    interface Flyable {\n        void flyObj();\n    }\n    static class Airplane implements Flyable {\n        public void flyObj() { System.out.println(\"Airplane flying in sky.\"); }\n    }\n    public static void main(String[] args) {\n        Flyable f = new Airplane();\n        f.flyObj();\n    }\n}",
-            "output": "Airplane flying in sky."
-        },
-        {
-            "title": "Write a Java program to create an interface Sortable for ascending sort",
-            "code": "public class SortableInterfaceDemo {\n    interface Sortable {\n        void sort();\n    }\n    static class BubbleSort implements Sortable {\n        public void sort() { System.out.println(\"Array sorted in ascending order.\"); }\n    }\n    public static void main(String[] args) {\n        Sortable s = new BubbleSort();\n        s.sort();\n    }\n}",
-            "output": "Array sorted in ascending order."
-        }
-    ],
-    "Packages": [
-        {
-            "title": "Create a Java program to access the java.util.Date class through import keyword",
-            "code": "import java.util.Date;\npublic class PackageImportDemo {\n    public static void main(String[] args) {\n        displayDate();\n    }\n    private static void displayDate() {\n        Date date = new Date();\n        System.out.println(\"Current Date: \" + date);\n    }\n}",
-            "output": "Current Date: Fri Oct 30 12:00:00 IST 2026"
-        },
-        {
-            "title": "Create a Java program to create a nested package i.e. c4.sample",
-            "code": "package c4.sample;\npublic class SamplePackageDemo {\n    public static void main(String[] args) {\n        System.out.println(\"Nested package c4.sample successfully created.\");\n    }\n}",
-            "output": "Nested package c4.sample successfully created."
-        },
-        {
-            "title": "Create a Java program to access Date class via fully qualified name",
-            "code": "public class FullyQualifiedNameDemo {\n    public static void main(String[] args) {\n        java.util.Date d = new java.util.Date();\n        System.out.println(\"Date via fully qualified name: \" + d);\n    }\n}",
-            "output": "Date via fully qualified name: Fri Oct 30 12:00:00 IST 2026"
-        },
-        {
-            "title": "Write a Java program to perform employee payroll processing using packages",
-            "code": "package employee;\npublic class PayrollDemo {\n    public static void main(String[] args) {\n        System.out.println(\"Payroll processed successfully for employee.\");\n    }\n}",
-            "output": "Payroll processed successfully for employee."
+            "title": "Program demonstrating Interface implementation",
+            "code": "interface Printable {\n    void print();\n}\nclass Document implements Printable {\n    public void print() {\n        System.out.println(\"Printing document...\");\n    }\n}\npublic class InterfaceTest {\n    public static void main(String[] args) {\n        Document doc = new Document();\n        doc.print();\n    }\n}"
         }
     ],
     "Exception Handling": [
         {
-            "title": "Write a Java program that throws an exception and catch it using a try-catch block.",
-            "code": "public class TryCatchDemo {\n    public static void main(String[] args) {\n        handleDivision();\n    }\n    private static void handleDivision() {\n        try {\n            int result = 5 / 0;\n        } catch(ArithmeticException e) {\n            System.out.println(\"Caught Exception: \" + e);\n        }\n    }\n}",
-            "output": "Caught Exception: java.lang.ArithmeticException: / by zero"
+            "title": "Program using try-catch for ArithmeticException",
+            "code": "public class TryCatchTest {\n    public static void main(String[] args) {\n        try {\n            int a = 10 / 0;\n        } catch (ArithmeticException e) {\n            System.out.println(\"Caught division by zero exception: \" + e);\n        }\n    }\n}"
         },
         {
-            "title": "Write a Java program to create a method that throws exception if number is odd",
-            "code": "public class CustomExceptionCheck {\n    public static void main(String[] args) {\n        try {\n            checkEven(5);\n        } catch(IllegalArgumentException e) {\n            System.out.println(\"Caught: \" + e.getMessage());\n        }\n    }\n    private static void checkEven(int n) {\n        if(n % 2 != 0) {\n            throw new IllegalArgumentException(\"Number is odd!\");\n        }\n    }\n}",
-            "output": "Caught: Number is odd!"
-        },
-        {
-            "title": "Write a Java program showing an example of throws keyword",
-            "code": "public class ThrowsKeywordDemo {\n    public static void main(String[] args) {\n        try {\n            readFile();\n        } catch(java.io.IOException e) {\n            System.out.println(\"IOException handled via throws.\");\n        }\n    }\n    private static void readFile() throws java.io.IOException {\n        throw new java.io.IOException(\"File not found\");\n    }\n}",
-            "output": "IOException handled via throws."
-        },
-        {
-            "title": "Write a Java program showing multiple catch blocks",
-            "code": "public class MultipleCatchDemo {\n    public static void main(String[] args) {\n        testMultipleCatches();\n    }\n    private static void testMultipleCatches() {\n        try {\n            String s = null;\n            s.length();\n        } catch(NullPointerException e) {\n            System.out.println(\"NullPointerException caught successfully.\");\n        } catch(Exception e) {\n            System.out.println(\"General exception caught.\");\n        }\n    }\n}",
-            "output": "NullPointerException caught successfully."
+            "title": "Program using multiple catch blocks",
+            "code": "public class MultiCatchTest {\n    public static void main(String[] args) {\n        try {\n            String s = null;\n            System.out.println(s.length());\n        } catch (NullPointerException e) {\n            System.out.println(\"Caught NullPointerException\");\n        } catch (Exception e) {\n            System.out.println(\"Caught general exception\");\n        }\n    }\n}"
         }
     ]
 };
@@ -723,7 +388,7 @@
                 card.innerHTML = `
                     <div class="topic-info">
                         <h3>${topic}</h3>
-                        <p>${count} practice problems</p>
+                        <p>${count} programs</p>
                     </div>
                     <div class="arrow-icon">
                         <i class="fas fa-chevron-right"></i>
@@ -735,59 +400,32 @@
 
         function openTopic(topicName) {
             document.getElementById('home-view').style.display = 'none';
-            document.getElementById('question-view').style.display = 'block';
-            document.getElementById('selectedTopicTitle').innerText = topicName;
+            document.getElementById('topic-detail-view').style.display = 'block';
+            document.getElementById('topicHeadingTitle').innerText = topicName;
             
-            const sidebarList = document.getElementById('sidebarList');
-            sidebarList.innerHTML = '';
+            const container = document.getElementById('programsContainer');
+            container.innerHTML = '';
             
             const questions = data[topicName];
             
             questions.forEach((q, index) => {
-                const item = document.createElement('div');
-                item.className = 'question-list-item';
-                if(index === 0) item.classList.add('active');
-                item.innerText = `Q${index + 1}: ${q.title}`;
-                item.onclick = () => selectQuestion(topicName, index, item);
-                sidebarList.appendChild(item);
+                const card = document.createElement('div');
+                card.className = 'program-card';
+                card.innerHTML = `
+                    <div class="prog-title">
+                        <span>Q${index + 1}.</span>
+                        <div>${q.title}</div>
+                    </div>
+                    <pre><code>${escapeHtml(q.code)}</code></pre>
+                `;
+                container.appendChild(card);
             });
             
-            if(questions.length > 0) {
-                displayQuestion(questions[0], 0);
-            }
             window.scrollTo(0, 0);
         }
 
-        function selectQuestion(topicName, index, element) {
-            document.querySelectorAll('.question-list-item').forEach(el => el.classList.remove('active'));
-            element.classList.add('active');
-            
-            const q = data[topicName][index];
-            displayQuestion(q, index);
-        }
-
-        function displayQuestion(q, index) {
-            const pane = document.getElementById('activeQuestionContent');
-            pane.innerHTML = `
-                <div class="q-title">
-                    <span>Q${index + 1}.</span>
-                    <div>${q.title}</div>
-                </div>
-                <div class="code-output-container">
-                    <div class="box-section" style="margin-bottom: 20px;">
-                        <h4>Java Code Solution</h4>
-                        <pre><code>${escapeHtml(q.code)}</code></pre>
-                    </div>
-                    <div class="box-section">
-                        <h4>Program Output</h4>
-                        <div class="output-box">${escapeHtml(q.output)}</div>
-                    </div>
-                </div>
-            `;
-        }
-
         function showHome() {
-            document.getElementById('question-view').style.display = 'none';
+            document.getElementById('topic-detail-view').style.display = 'none';
             document.getElementById('home-view').style.display = 'block';
             window.scrollTo(0, 0);
         }
